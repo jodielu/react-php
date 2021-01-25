@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
-header("Access-Control-Allow-Headers: access-control-allow-methods, access-control-allow-origin");
+header("Access-Control-Allow-Headers: access-control-allow-headers, access-control-allow-methods, access-control-allow-origin");
 header("Access-Control-Allow-Credentials", "true");
 
 $host = "localhost"; 
@@ -12,8 +12,7 @@ $id = '';
 
 $con = mysqli_connect($host, $user, $password, $dbname);
 
-$method = $_SERVER['REQUEST_METHOD'];
-$request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
+$method = 'GET';
 
 if (!$con) {
   die("Connection failed: " . mysqli_connect_error());
@@ -22,8 +21,7 @@ if (!$con) {
 
 switch ($method) {
     case 'GET':
-      $name = 'Andrew Kou';
-      $sql = "select * from bill".($name?" where name=$name":''); 
+      $sql = "select * from bill"; 
       break;
     case 'POST':
       $name = $_POST["name"];

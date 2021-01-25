@@ -13,11 +13,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const url = 'http://localhost:8000/api/mailchimpies.php'
+    const url = 'http://localhost:8000/api/mailchimpies.php/'
     axios.get(url, {
       headers: {
         "Access-Control-Allow-Origin": "*",
-        'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        'Access-Control-Allow-Methods' : 'GET, POST',
+        "Access-Control-Allow-Headers" : "access-control-allow-headers, access-control-allow-methods, access-control-allow-origin",
       }
     }).then(response => response.data)
     .then((data) => {
