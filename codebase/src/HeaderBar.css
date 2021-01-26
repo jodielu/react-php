@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Cooper';
+    src: local('Cooper'), url(./cooperl.ttf) format('truetype');
+}
+
+.header-bar-container {
+    background-color: #FFE01B;
+    height: 100%;
+    display: flex;  
+}
+
+.header-text {
+    font-size: 75px;
+    margin-bottom: 100px;
+    align-self: flex-end;
+    margin-left: 100px;
+    font-family: 'Cooper';
+}

@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Cooper';
+    src: local('Cooper'), url(./cooperl.ttf) format('truetype');
+}
+
+.side-bar-container {
+    width: 100%;
+    padding-top: 63px;
+    padding-left: 70px;
+    overflow-y: scroll;
+}
+
+.side-bar-tab {
+    font-family: 'Cooper';
+    font-size: 23px;
+    width: 80%;
+    margin-bottom: 40px;
+    color: #000;
+    display: block;
+    float: left;
+}
+
+a:hover {
+    color: #007C89;
+    cursor: pointer;
+}

@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Cooper';
+    src: local('Cooper'), url(./cooperl.ttf) format('truetype');
+}
+
+.info-card-container {
+    width: 85%;
+    height: 70%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-text{
+    background-color: green;
+    width: 40%;
+    height: 40%;
+    margin: 10px;
+    font-family: 'Cooper';
+}
