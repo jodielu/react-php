@@ -4,18 +4,38 @@
 }
 
 .info-card-container {
-    width: 85%;
-    height: 70%;
+    width: 90%;
+    height: 80%;
     background-color: white;
     border-radius: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-container {
+    height: 80%;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .info-text{
-    background-color: green;
     width: 40%;
     height: 40%;
     margin: 10px;
     font-family: 'Cooper';
+}
+
+.title {
+    font-size: 23px;
+    margin-bottom: 0px;
+}
+
+.response {
+    font-size: 30px;
+    margin-top: 2px;
 }

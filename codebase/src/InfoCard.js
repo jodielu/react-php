@@ -11,21 +11,23 @@ class InfoCard extends React.Component {
   render () {
     return (
         <div className = "info-card-container">
-            <div className = "info-text"> 
-                <p>Name:</p>
-                <p>{this.props.name}</p>
-            </div>
-            <div className = "info-text"> 
-                <p>Year:</p>
-                <p>{this.props.year}</p>
-            </div>
-            <div className = "info-text"> 
-                <p>Birthday:</p>
-                <p>{this.props.birthday}</p>
-            </div>
-            <div className = "info-text"> 
-                <p>Fun Fact:</p>
-                <p>{this.props.fact}</p>
+          <div className = "info-container">
+              <div className = "info-text"> 
+                  <p className = "title">Name:</p>
+                  <p className = "response">{this.props.name}</p>
+              </div>
+              <div className = "info-text"> 
+                  <p className = "title">Year:</p>
+                  <p className = "response">{this.props.year}</p>
+              </div>
+              <div className = "info-text"> 
+                  <p className = "title">Birthday:</p>
+                  <p className = "response">{this.props.birthday}</p>
+              </div>
+              <div className = "info-text"> 
+                  <p className = "title">Fun Fact:</p>
+                  <p className = "response">{this.props.fact}</p>
+              </div>
             </div>
         </div>
     );
