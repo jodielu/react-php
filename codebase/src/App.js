@@ -5,6 +5,7 @@ import SideBar from './SideBar.js';
 import InfoCard from './InfoCard.js';
 import React, { Component } from 'react';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
 
 class App extends React.Component {
 
@@ -20,15 +21,41 @@ class App extends React.Component {
 
   componentDidMount() {
     const url = 'http://localhost:8000/api/mailchimpies.php/'
-    axios.get(url, {
-      headers: {
+    axios({
+      method: 'get',
+      url: url,
+      config: { headers: {
         "Access-Control-Allow-Origin": "*",
         'Access-Control-Allow-Methods' : 'GET, POST',
-        "Access-Control-Allow-Headers" : "access-control-allow-headers, access-control-allow-methods, access-control-allow-origin",
-      }
+        "Access-Control-Allow-Headers" : "access-control-allow-headers, access-control-allow-methods, access-control-allow-origin", 
+      }}
     }).then(response => response.data)
     .then((data) => {
-      console.log(data);
+      this.setState({ memberInfo: data });
+      this.setState({ isLoading: false });
+     });
+  }
+
+  addNewMember() {
+    const url = 'http://localhost:8000/api/mailchimpies.php/'
+    let formData = new FormData();
+    formData.append('name', "Jobie")
+    formData.append('year', "2nd")
+    formData.append('major', "CS")
+    formData.append('birthday', "akdufhkajshfj")
+    formData.append('funfact', "akdjhdaf")
+    formData.append('favfood', "aldjflk")
+    axios({
+        method: 'post',
+        url: url,
+        data: formData,
+        config: { headers: {
+          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Methods' : 'GET, POST',
+          "Access-Control-Allow-Headers" : "access-control-allow-headers, access-control-allow-methods, access-control-allow-origin", 
+        }}
+    }).then(response => response.data)
+    .then((data) => {
       this.setState({ memberInfo: data });
       this.setState({ isLoading: false });
      });
@@ -36,7 +63,6 @@ class App extends React.Component {
 
   selectPerson(number) {
     this.setState({ selected: number });
-    console.log(number);
   }
 
   render () {
@@ -53,10 +79,10 @@ class App extends React.Component {
         </div>
         <div className="content">
           <div className="sidebar">
-            <SideBar selectPerson = {this.selectPerson} selected = {this.state.selected}/>
+            <SideBar memberInfo = {this.state.memberInfo} selectPerson = {this.selectPerson} selected = {this.state.selected}/>
           </div>
           <div className="infocard">
-            <InfoCard name = {this.state.memberInfo[this.state.selected].name} year = {this.state.memberInfo[this.state.selected].year} birthday = {this.state.memberInfo[this.state.selected].birthday} fact = {this.state.memberInfo[this.state.selected].funfact}/>
+            <InfoCard memberInfo = {this.state.memberInfo} selected = {this.state.selected}/>
           </div>
         </div>
       </div>

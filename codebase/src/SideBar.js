@@ -6,16 +6,20 @@ class SideBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: undefined
+      selected: undefined,
+      names: [],
     }
     this.selectPerson = this.selectPerson.bind(this)
   }
 
   componentDidMount() {
-    console.log(this.props.selected)
     this.setState({
       selected: this.props.selected
     })
+
+    for (let i = 0; i < this.props.memberInfo.length; i++) {
+      this.state.names.push(this.props.memberInfo[i].name);
+    }
   }
 
   selectPerson(number) {
@@ -26,10 +30,9 @@ class SideBar extends React.Component {
   }
 
   render () {
-    let teammates = ["Andrew Kou", "Jodie Lu", "Rachel Lau", "Kevin Zhu", "Raymond Guo", "Matt Jeng", "Steven Tsay", "Kyle Tse"];
     return (
       <div className = "side-bar-container">
-        {teammates.map((mate, index) => (
+        {this.state.names.map((mate, index) => (
             <button className = {"side-bar-tab " + (this.state.selected == index ? 'active' : '')} id={index} onClick={() => this.selectPerson(index)}>
                 {mate}
             </button>
